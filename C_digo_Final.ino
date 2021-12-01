@@ -27,7 +27,6 @@ int IN1=7;
 int ENA=8;
 int interruptor=9;
 int motor;
-int SWITCH;
 int pinCS = 10;
 
 File archivo;
