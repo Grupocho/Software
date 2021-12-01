@@ -148,39 +148,53 @@ void setup() {
 
 void loop() {
 
-    motor=digitalRead(interruptor);
-  
-  if(motor==HIGH){
-    digitalWrite(rly1,HIGH);
-    digitalWrite(rly2,LOW);
-    digitalWrite(IN1,HIGH);
-    digitalWrite(ENA,HIGH);
-    Serial.println("relee accionado\n");
-    delay(1000);
-    return;
-  }
-  if(motor==LOW){
-    digitalWrite(rly1,LOW);
-    digitalWrite(rly2,HIGH);
-    digitalWrite(IN1,LOW);
-    Serial.println("relee no accionado\n");
-    delay(1000);
-    return;
-  }
-/* if(mylcd.data()){
+ if(mylcd.data()){
     mylcd.read();
     x=mylcd.getX();
     y=mylcd.getY();
 
-    if((x>=90)&&(x<=100)&&(y>=80)&&(y<=100)){
-      
+  if((x>=90)&&(x<=100)&&(y>=80)&&(y<=100)){
+    motor=digitalRead(interruptor);
+  
+    if(motor==HIGH){
+      digitalWrite(rly1,HIGH);
+      digitalWrite(rly2,LOW);
+      digitalWrite(IN1,HIGH);
+      digitalWrite(ENA,HIGH);
+      Serial.println("relee accionado\n");
+      delay(1000);
+      return;
+      }
+    if(motor==LOW){
+      digitalWrite(rly1,LOW);
+      digitalWrite(rly2,HIGH);
+      digitalWrite(IN1,LOW);
+      Serial.println("relee no accionado\n");
+      delay(1000);
+      return;
+      } 
     }
 
-    if((x>=90)&&(x<=100)&&(y>=140)&&(y<=160)){
-      
+   if((x>=90)&&(x<=100)&&(y>=140)&&(y<=160)){
+        motor=digitalRead(interruptor);
+  
+      if(motor==HIGH){
+        digitalWrite(rly1,HIGH);
+        digitalWrite(rly2,LOW);
+        digitalWrite(IN1,HIGH);
+        digitalWrite(ENA,HIGH);
+        Serial.println("relee accionado\n");
+        delay(1000);
+        return;
+        }
+      if(motor==LOW){
+        digitalWrite(rly1,LOW);
+        digitalWrite(rly2,HIGH);
+        digitalWrite(IN1,LOW);
+        Serial.println("relee no accionado\n");
+        delay(1000);
+        return;
+        }
     }
   }
-  */
-
-
 }
