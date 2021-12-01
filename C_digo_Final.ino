@@ -28,6 +28,11 @@ int ENA=8;
 int interruptor=9;
 int motor;
 int pinCS = 10;
+int pinSCK = 13;
+int pinMISO= 12;
+int pinMOSI = 11;
+int pinCSLCD = A5;
+int pinReset = A4;
 
 File archivo;
 void text_test(){
@@ -40,8 +45,6 @@ void text_test(){
   mylcd.Set_Text_Size(2.5);
   mylcd.Print_String("BIENVENIDO USUARIO, ", 0, 15);
   
- 
-
   mylcd.Set_Text_colour(WHITE);
   mylcd.Set_Text_Size(2);
   mylcd.Print_String("  Listo paara realizar", 0, 90);
@@ -155,28 +158,6 @@ void loop() {
   if((x>=90)&&(x<=100)&&(y>=80)&&(y<=100)){
     motor=digitalRead(interruptor);
   
-    if(motor==HIGH){
-      digitalWrite(rly1,HIGH);
-      digitalWrite(rly2,LOW);
-      digitalWrite(IN1,HIGH);
-      digitalWrite(ENA,HIGH);
-      Serial.println("relee accionado\n");
-      delay(1000);
-      return;
-      }
-    if(motor==LOW){
-      digitalWrite(rly1,LOW);
-      digitalWrite(rly2,HIGH);
-      digitalWrite(IN1,LOW);
-      Serial.println("relee no accionado\n");
-      delay(1000);
-      return;
-      } 
-    }
-
-   if((x>=90)&&(x<=100)&&(y>=140)&&(y<=160)){
-        motor=digitalRead(interruptor);
-  
       if(motor==HIGH){
         digitalWrite(rly1,HIGH);
         digitalWrite(rly2,LOW);
@@ -185,7 +166,7 @@ void loop() {
         Serial.println("relee accionado\n");
         delay(1000);
         return;
-        }
+       }
       if(motor==LOW){
         digitalWrite(rly1,LOW);
         digitalWrite(rly2,HIGH);
@@ -193,6 +174,28 @@ void loop() {
         Serial.println("relee no accionado\n");
         delay(1000);
         return;
+      } 
+    }
+
+   if((x>=90)&&(x<=100)&&(y>=140)&&(y<=160)){
+        motor=digitalRead(interruptor);
+  
+        if(motor==HIGH){
+          digitalWrite(rly1,HIGH);
+          digitalWrite(rly2,LOW);
+          digitalWrite(IN1,HIGH);
+          digitalWrite(ENA,HIGH);
+          Serial.println("relee accionado\n");
+          delay(1000);
+          return;
+        }
+        if(motor==LOW){
+          digitalWrite(rly1,LOW);
+          digitalWrite(rly2,HIGH);
+          digitalWrite(IN1,LOW);
+          Serial.println("relee no accionado\n");
+          delay(1000);
+          return;
         }
     }
   }
